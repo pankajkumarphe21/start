@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.get('/',(req,res)=>{
   const date=new Date(Date.now());
-  res.send('server is running');
+  res.send(JSON.stringify([date]));
 })
 
 app.listen(PORT, () => {
