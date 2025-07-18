@@ -6,7 +6,7 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get('/',(req,res)=>{
-  const date=new Date(Date.now()).toLocaleString('en-US',{hour12:false});
+  const date=new Date(Date.now()).toLocaleString('en-IN',{hour12:false});
   res.send(JSON.stringify([date]));
 })
 
