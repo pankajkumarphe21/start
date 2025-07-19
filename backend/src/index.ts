@@ -17,7 +17,7 @@ console.log('India Time:', indiaTime);
 console.log('US Eastern Time:', usEasternTime);
 console.log('London Time:', londonTime);
 
-  res.send(JSON.stringify([indiaTime,usEasternTime,londonTime,new Date(Date.now())]));
+  res.send(JSON.stringify([indiaTime,usEasternTime,londonTime,new Date(Date.now()).toUTCString(),new Date(Date.now()).toISOString()]));
 })
 
 app.listen(PORT, () => {
