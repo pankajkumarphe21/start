@@ -20,6 +20,7 @@ app.get('/test',(req,res)=>{
   let timestamp=new Date().toISOString();
   const currentTime = new Date().toISOString();
   const date = new Date(currentTime).toISOString().split('T')[0];
+  const rest = new Date(currentTime).toISOString().split('T')[1];
   console.log(new Date().toString());
   if (!timestamp) res.send(0);
   try {
@@ -28,7 +29,7 @@ app.get('/test',(req,res)=>{
     const [, timePart] = istTime.split(', ');
     const [hourStr] = timePart.split(':');
     const hour = parseInt(hourStr, 10);
-    res.send( JSON.stringify([hour >= 9 && hour < 18 ? 1 : 2,timestamp,currentTime,date]));
+    res.send( JSON.stringify([hour >= 9 && hour < 18 ? 1 : 2,timestamp,currentTime,date,rest]));
   } catch {
     console.warn('Failed to determine shift_id from timestamp');
     res.send('Hi');
